@@ -1,0 +1,42 @@
+﻿<Window x:Class="practica_vesna.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Авторизация" Height="450" Width="800"
+        MinHeight="450" MinWidth="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <Label Grid.Row="0" Content="Вход" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Margin="10"/>
+
+        <!-- Основное содержимое -->
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,10">
+                <StackPanel Orientation="Vertical" Margin="0,0,10,0">
+                    <Label Content="Логин"/>
+                    <Label Content="Пароль"/>
+                    <Label Content="Капча"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBox x:Name="txtLogin" Width="200" Margin="0,0,0,5"/>
+                    <PasswordBox x:Name="txtPassword" Width="200" Margin="0,0,0,5"/>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image x:Name="imgCaptcha" Width="120" Height="40" Stretch="Fill" Margin="0,0,5,0"/>
+                        <TextBox x:Name="txtCaptchaAnswer" Width="80" VerticalAlignment="Center"/>
+                        <Button Content="⟳" Width="30" Height="30" Margin="5,0,0,0" Click="RefreshCaptcha_Click" ToolTip="Обновить капчу"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <CheckBox x:Name="chkRememberMe" Content="Запомнить меня" Margin="0,0,0,10"/>
+            <Button x:Name="btnLogin" Content="Войти" Width="120" Click="btnLogin_Click"/>
+        </StackPanel>
+
+        <!-- Кнопка "Главное меню" -->
+        <Button Grid.Row="2" x:Name="btnMainMenu" Content="Главное меню" HorizontalAlignment="Right" Margin="10" Width="120" Click="btnMainMenu_Click"/>
+    </Grid>
+</Window>

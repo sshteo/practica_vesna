@@ -1,0 +1,42 @@
+﻿<Window x:Class="practica_vesna.WindowJury"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Жюри" 
+        MinHeight="450" MinWidth="800" MaxHeight="455" MaxWidth="810"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Личная информация -->
+        <GroupBox Header="Личная информация" Grid.Row="0" Margin="0,0,0,10">
+            <StackPanel Orientation="Horizontal">
+                <Image x:Name="imgPhoto" Width="60" Height="60" Margin="0,0,10,0"/>
+                <StackPanel>
+                    <TextBlock x:Name="txtFullName"/>
+                    <TextBlock x:Name="txtEmail"/>
+                    <TextBlock x:Name="txtPhone"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <!-- Список участников -->
+        <GroupBox Header="Участники" Grid.Row="1" Margin="0,0,0,10">
+            <DataGrid x:Name="dgParticipants" AutoGenerateColumns="False" IsReadOnly="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" Width="*"/>
+                    <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}" Width="*"/>
+                    <DataGridTextColumn Header="Отчество" Binding="{Binding MiddleName}" Width="*"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
+                    <DataGridTextColumn Header="Страна" Binding="{Binding CountryName}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+
+        <!-- Кнопка выхода -->
+        <Button Grid.Row="1" Content="Выход" Width="100" Height="30" HorizontalAlignment="Left" Click="ExitButton_Click" Margin="690,0,0,0" Grid.RowSpan="2" VerticalAlignment="Bottom"/>
+    </Grid>
+</Window>
